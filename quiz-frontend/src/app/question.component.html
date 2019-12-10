@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-content>
+    <form>
+      <mat-form-field class="fullWidth">
+        <input [(ngModel)]="question.Text" name="question" matInput placeholder="Question">
+      </mat-form-field>
+      <mat-form-field class="fullWidth">
+        <input [(ngModel)]="question.CorrectAnswer" name="correctAnswer" matInput placeholder="correctAnswer">
+      </mat-form-field>
+      <mat-form-field class="fullWidth">
+        <input [(ngModel)]="question.Answer1" name="answer1" matInput placeholder="Wrong Answer 1">
+      </mat-form-field>
+      <mat-form-field class="fullWidth">
+        <input [(ngModel)]="question.Answer2" name="answer2" matInput placeholder="Wrong Answer 2">
+      </mat-form-field>
+      <mat-form-field class="fullWidth">
+        <input [(ngModel)]="question.Answer3" name="answer3" matInput placeholder="Wrong Answer 3">
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="post(question)" mat-button>POST</button>
+  </mat-card-actions>
+</mat-card>
