@@ -27,11 +27,25 @@ namespace quiz_backend.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody]Models.Question question)
+        public async Task<IActionResult> Post([FromBody]Models.Question question)
         {
-            _context.Questions.Add(question);
-
+            await _context.Questions.AddAsync(question);
             _context.SaveChanges();
+
+            return Ok(question);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, [FromBody]Models.Question question)
+        {
+            if (id != question.Id)
+            {
+                return BadRequest();
+            }
+            _context.Entry(question).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return Ok(question);
         }
     }
 }

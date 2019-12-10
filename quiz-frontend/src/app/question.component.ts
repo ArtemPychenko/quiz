@@ -8,8 +8,15 @@ import { ApiService } from './api.service';
 })
 export class QuestionComponent {
 
-  question = {};
+  question = {}
+
   constructor(private api: ApiService) {}
+
+  // tslint:disable-next-line:use-lifecycle-interface
+  ngOnInit() {
+    console.log('question on init');
+    this.api.questionSelected.subscribe(question => this.question = question);
+  }
 
   post(question) {
     this.api.postQuestion(question);
