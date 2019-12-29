@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace quiz_backend.Models
+﻿namespace quiz_backend.Models
 {
     public class Question
     {
@@ -17,5 +12,7 @@ namespace quiz_backend.Models
         public string Answer2 { get; set; }
 
         public string Answer3 { get; set; }
+
+        public int QuizId { get; set; }
     }
 }

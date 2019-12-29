@@ -17,11 +17,15 @@ import { QuestionsComponent } from './questions.component';
 import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './home.component';
 import { NavComponent } from './nav.component';
+import { QuizComponent } from './quiz.component';
+import { QuizzesComponent } from './quizzes.component';
 
 const routes = [
   { path: '', component: HomeComponent },
   { path: 'question', component: QuestionComponent },
-  { path: 'questions', component: QuestionsComponent }
+  { path: 'question/:quizId', component: QuestionComponent },
+  { path: 'quiz', component: QuizComponent },
+  { path: 'quizzes', component: QuizzesComponent }
 ]
 
 @NgModule({
@@ -30,7 +34,9 @@ const routes = [
       QuestionComponent,
       QuestionsComponent,
       HomeComponent,
-      NavComponent
+      NavComponent,
+      QuizComponent,
+      QuizzesComponent
    ],
    imports: [
       BrowserModule,

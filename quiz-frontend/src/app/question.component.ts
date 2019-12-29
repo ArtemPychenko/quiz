@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from './api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -8,17 +9,19 @@ import { ApiService } from './api.service';
 })
 export class QuestionComponent {
 
-  question = {}
+  question = {};
+  quizId;
 
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private route: ActivatedRoute) {}
 
   // tslint:disable-next-line:use-lifecycle-interface
   ngOnInit() {
-    console.log('question on init');
+    this.quizId = this.route.snapshot.paramMap.get('quizId');
     this.api.questionSelected.subscribe(question => this.question = question);
   }
 
   post(question) {
+    question.quizId = this.quizId;
     this.api.postQuestion(question);
   }
 }
